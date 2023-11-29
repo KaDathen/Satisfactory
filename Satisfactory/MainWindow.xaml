@@ -1,0 +1,24 @@
+﻿<Window x:Class="Satisfactory.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Satisfactory"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Frame NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered"  Grid.Row="1" Grid.Column="1" Name="MainFrame"/>
+        <Grid Background="#e39230" Grid.ColumnSpan="2" />
+        <Grid Background="#e39230" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <ListBox Grid.Row="1" Name="Lst_control" PreviewMouseDoubleClick="Lst_control_PreviewMouseDoubleClick" />
+    </Grid>
+</Window>
