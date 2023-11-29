@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:Satisfactory"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#e39230"/>
+        </Style>
     </Application.Resources>
 </Application>

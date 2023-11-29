@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Satisfactory
 {
     /// <summary>
-    /// Логика взаимодействия для Test.xaml
+    /// Логика взаимодействия для Empty.xaml
     /// </summary>
-    public partial class Test : Page
+    public partial class Empty : Page
     {
-        public Test()
+        public Empty()
         {
             InitializeComponent();
         }

@@ -26,6 +26,10 @@ namespace Satisfactory
         {
             InitializeComponent();
             Lst_control.Items.Add("Test");
+            Lst_control.Visibility = Visibility.Hidden;
+            MainFrame.SetValue(Grid.ColumnSpanProperty, 2);
+            MainFrame.Navigate(new Auth());
+            Tran.MainFrame = MainFrame;
             //Import();
             //ImportS();
         }
@@ -119,14 +123,24 @@ namespace Satisfactory
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
-
+            if(Auths.InAuth == false)
+            {
+                Lst_control.Visibility = Visibility.Hidden;
+                MainFrame.SetValue(Grid.ColumnSpanProperty, 2);
+            }
+            else
+            {
+                Lst_control.Visibility= Visibility.Visible;
+                MainFrame.SetValue(Grid.ColumnProperty, 1);
+                MainFrame.SetValue(Grid.ColumnSpanProperty, 1);
+            }
         }
 
         private void Lst_control_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (Lst_control.Items[0].ToString() == "Test")
             {
-                MainFrame.Navigate(new Test());
+                MainFrame.Navigate(new Auth());
             }
         }
     }
