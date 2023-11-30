@@ -16,9 +16,10 @@
             <ColumnDefinition Width="130"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Frame NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered"  Grid.Row="1" Name="MainFrame"/>
-        <Grid Background="#e39230" Grid.ColumnSpan="2" />
+        <Grid Background="#e39230" Grid.ColumnSpan="2"/>
         <Grid Background="#e39230" Grid.Row="2" Grid.ColumnSpan="2"/>
         <ListBox Grid.Row="1" Name="Lst_control" PreviewMouseDoubleClick="Lst_control_PreviewMouseDoubleClick" />
+        <Frame NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered" Grid.Row="1" Name="MainFrame"/>
+        
     </Grid>
 </Window>

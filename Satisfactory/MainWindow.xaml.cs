@@ -25,7 +25,7 @@ namespace Satisfactory
         public MainWindow()
         {
             InitializeComponent();
-            Lst_control.Items.Add("Test");
+            
             Lst_control.Visibility = Visibility.Hidden;
             MainFrame.SetValue(Grid.ColumnSpanProperty, 2);
             MainFrame.Navigate(new Auth());
@@ -133,14 +133,20 @@ namespace Satisfactory
                 Lst_control.Visibility= Visibility.Visible;
                 MainFrame.SetValue(Grid.ColumnProperty, 1);
                 MainFrame.SetValue(Grid.ColumnSpanProperty, 1);
+                Lst_control.Items.Clear();
+                if(Auths.Status == "Admin" || Auths.Status == "Manager")
+                {
+                    Lst_control.Items.Add("Materials");
+                }
             }
+
         }
 
         private void Lst_control_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (Lst_control.Items[0].ToString() == "Test")
+            if (Lst_control.Items[0].ToString() == "Materials")
             {
-                MainFrame.Navigate(new Auth());
+                MainFrame.Navigate(new Materials());
             }
         }
     }

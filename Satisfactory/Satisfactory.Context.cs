@@ -12,6 +12,8 @@ namespace Satisfactory
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class SatisfactoryEntities : DbContext
     {
@@ -48,5 +50,10 @@ namespace Satisfactory
         public virtual DbSet<Supplies> Supplies { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+    
+        public virtual ObjectResult<string> TypeCom()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("TypeCom");
+        }
     }
 }
