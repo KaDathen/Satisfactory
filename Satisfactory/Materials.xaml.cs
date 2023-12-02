@@ -47,12 +47,38 @@ namespace Satisfactory
 
         private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            UpdateMatetials();
         }
 
         private void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateMatetials();
+        }
+
+        private void btn_Edit(object sender, RoutedEventArgs e)
+        {
+            Tran.MainFrame.Navigate(new EditMaterials((sender as Button).DataContext as Material));
+        }
+        private void btn_Delete(object sender, RoutedEventArgs e)
+        {
+            var TourForRemoving = LVistMaterials.SelectedItems.Cast<Material>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить слудующие {TourForRemoving.Count()} элементов", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    SatisfactoryEntities.GetContext().Material.RemoveRange(TourForRemoving);
+                    SatisfactoryEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены");
+
+                    LVistMaterials.ItemsSource = SatisfactoryEntities.GetContext().Material.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
         }
     }
 }

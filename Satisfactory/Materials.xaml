@@ -38,7 +38,8 @@
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="130"/>
                             <RowDefinition Height="auto"/>
-                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="25"/>
                         </Grid.RowDefinitions>
                         <Image Width="128" Height="128" Grid.Row="1" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">
                             <Image.Source>
@@ -52,9 +53,11 @@
                         <TextBlock Text="{Binding Наименование}" VerticalAlignment="Center" TextAlignment="Center" Width="390"
                                TextWrapping="Wrap" HorizontalAlignment="Center" Margin="5 5" FontSize="26" Grid.Row="0"></TextBlock>
                         <TextBlock Text="{Binding Цена, StringFormat={}{0:N2}РУБ}" Grid.Row="2" Margin="5 5 5 15" HorizontalAlignment="Center" FontSize="26" FontWeight="Bold"></TextBlock>
-                        <TextBlock Text="{Binding КолУпаковки, StringFormat={}Количество в одной упаковки: {0}}" Grid.Row="3" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Text="{Binding КолУпаковки, StringFormat={}Количество в одной упаковки: {0}}" Grid.Row="3" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom"></TextBlock>
                         <TextBlock Text="{Binding КолНаСкладе, StringFormat={}Осталось на складе: {0}}" Grid.Row="3" FontSize="14" HorizontalAlignment="Left"></TextBlock>
-                        <TextBlock Text="{Binding ЕдиницаИзм}" Margin="0 0 100 0" Grid.Row="3" FontSize="14" HorizontalAlignment="Right"></TextBlock>
+                        <TextBlock Text="{Binding ЕдиницаИзм}" Margin="0 0 100 0" Grid.Row="3" FontSize="14" HorizontalAlignment="Right" ></TextBlock>
+                        <Button Grid.Row="4" Height="20" Width="75" Content="Delete" HorizontalAlignment="Right" Click="btn_Delete" />
+                        <Button Grid.Row="4" Height="20" Width="57" Content="Edit" HorizontalAlignment="Left" Click="btn_Edit"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

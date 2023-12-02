@@ -69,6 +69,9 @@
       <DependentUpon>Satisfactory.tt</DependentUpon>
     </Compile>
     <Compile Include="Auths.cs" />
+    <Compile Include="EditMaterials.xaml.cs">
+      <DependentUpon>EditMaterials.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>Satisfactory.tt</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
     <Compile Include="Users.cs">
       <DependentUpon>Satisfactory.tt</DependentUpon>
     </Compile>
+    <Page Include="EditMaterials.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Empty.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
