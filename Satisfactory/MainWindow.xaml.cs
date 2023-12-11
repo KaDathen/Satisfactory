@@ -144,9 +144,12 @@ namespace Satisfactory
 
         private void Lst_control_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (Lst_control.Items[0].ToString() == "Materials")
+            if (Lst_control.Items.Count > 0)
             {
-                MainFrame.Navigate(new Materials());
+                if (Lst_control.Items[0].ToString() == "Materials")
+                {
+                    MainFrame.Navigate(new Materials());
+                }
             }
         }
     }

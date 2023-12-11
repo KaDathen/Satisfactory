@@ -23,7 +23,15 @@
             <ColumnDefinition Width="391*"/>
             <ColumnDefinition Width="252*"/>
         </Grid.ColumnDefinitions>
-        <Image Height="250" Width="250" Grid.RowSpan="6" Grid.Column="4" Source="{Binding ИзображениеМатериала}" MouseLeftButtonDown="Image_MouseLeftButtonDown" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Top" Name="imnn"/>
+        <Image Height="250" Width="250" Grid.RowSpan="6" Grid.Column="4" MouseLeftButtonDown="Image_MouseLeftButtonDown" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Top" Name="imnn">
+            <Image.Source>
+                <Binding Path="ИзображениеМатериала">
+                    <Binding.TargetNullValue>
+                        <ImageSource>Resources/noPhoto.png</ImageSource>
+                    </Binding.TargetNullValue>
+                </Binding>
+            </Image.Source>
+        </Image>
         <TextBlock Text="Название" FontSize="20"></TextBlock>
         <TextBlock Text="Тип Материала" Grid.Row="1" FontSize="20" TextWrapping="Wrap"></TextBlock>
         <TextBlock Text="Цена" Grid.Row="2" FontSize="20"></TextBlock>

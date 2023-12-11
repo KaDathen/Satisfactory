@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -32,8 +34,6 @@ namespace Satisfactory
         private void UpdateMatetials()
         {
             var currentMaterials = SatisfactoryEntities.GetContext().Material.ToList();
-
-
             if (ComboType.SelectedIndex > 0)
             {
                 currentMaterials = currentMaterials.Where(p => p.ТипМатериала == ComboType.Items[ComboType.SelectedIndex].ToString() ).ToList();
@@ -63,12 +63,12 @@ namespace Satisfactory
         {
             var TourForRemoving = LVistMaterials.SelectedItems.Cast<Material>().ToList();
 
-            if (MessageBox.Show($"Вы точно хотите удалить слудующие {TourForRemoving.Count()} элементов", "Внимание",
+            if (MessageBox.Show($"Вы точно хотите удалить слудующие элемент", "Внимание",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    SatisfactoryEntities.GetContext().Material.RemoveRange(TourForRemoving);
+                    SatisfactoryEntities.GetContext().Material.Remove((sender as Button).DataContext as Material);
                     SatisfactoryEntities.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены");
 
@@ -80,5 +80,16 @@ namespace Satisfactory
                 }
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnnew_Click(object sender, RoutedEventArgs e)
+        {
+            Tran.MainFrame.Navigate(new EditMaterials(null));
+        }
+
     }
 }

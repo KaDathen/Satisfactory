@@ -11,7 +11,8 @@ namespace Satisfactory
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+
     public partial class Material
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -30,7 +31,37 @@ namespace Satisfactory
         public Nullable<int> МинКолНаСкладе { get; set; }
         public Nullable<int> КолУпаковки { get; set; }
         public string ЕдиницаИзм { get; set; }
-    
+
+        public string Provider
+        {
+            get
+            {
+                var Pso = SatisfactoryEntities.GetContext().Provider.ToList();
+                var Svaz = SatisfactoryEntities.GetContext().PossibleSuppliers.ToList();
+                string texts = "";
+                for (int i = 0; i < Pso.Count; i++)
+                {
+                    for (int j = 0; j < Svaz.Count; j++)
+                    {
+                        if (Pso[i].IDПоставщика == Svaz[j].IDПоставщика && Svaz[j].IDМатериала == IDМатериала)
+                        {
+                            if (texts == "")
+                            {
+                                texts = "Поставщики: " + Pso[i].Наименование;
+                            }
+                            else
+                            {
+                                texts = texts + ", " + Pso[i].Наименование;
+                            }
+
+                        }
+                    }
+                }
+                return (texts);
+            }
+
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PossibleSuppliers> PossibleSuppliers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

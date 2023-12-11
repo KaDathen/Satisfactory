@@ -98,10 +98,6 @@ namespace Satisfactory
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            if (imnn.Source == null)
-            {
-                imnn.Source = new BitmapImage(new Uri("/Resources/noPhoto.png", UriKind.Relative));
-            }
             imgChange = false;
         }
     }
