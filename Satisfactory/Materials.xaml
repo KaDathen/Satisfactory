@@ -52,7 +52,7 @@
                             </Image.Source>
                         </Image>
                         <TextBlock Text="{Binding ТипМатериала}" Grid.Column="1"  VerticalAlignment="Center" TextAlignment="Left" Width="390"
-                             HorizontalAlignment="Center" Margin="5 5" FontSize="20" Grid.Row="0">. | <TextBlock Text="{Binding Наименование}"></TextBlock></TextBlock>
+                             HorizontalAlignment="Left" Margin="5 5" FontSize="20" Grid.Row="0">. | <TextBlock Text="{Binding Наименование}"></TextBlock></TextBlock>
                         <TextBlock Text="{Binding МинКолНаСкладе, StringFormat={}Минимальное количество: {0}}" Grid.Column="1" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
                         <TextBlock Text="{Binding КолНаСкладе, StringFormat={}Осталось: {0}}" Grid.Column="1" Grid.Row="0" FontSize="14" HorizontalAlignment="Right"></TextBlock>
                         <TextBlock Text="{Binding Provider}" Grid.Column="1" Grid.Row="3" FontSize="14" HorizontalAlignment="Left" Name="Post"></TextBlock>

@@ -138,19 +138,29 @@ namespace Satisfactory
                 {
                     Lst_control.Items.Add("Materials");
                 }
+                if (Auths.Status == "Admin")
+                {
+                    Lst_control.Items.Add("Providers");
+                }
             }
 
         }
 
         private void Lst_control_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (Lst_control.Items.Count > 0)
+            if (Lst_control.Items.Count > 0 && Lst_control.SelectedIndex != -1)
             {
-                if (Lst_control.Items[0].ToString() == "Materials")
+                if (Lst_control.Items[Lst_control.SelectedIndex].ToString() == "Materials")
                 {
                     MainFrame.Navigate(new Materials());
                 }
+
+                if (Lst_control.Items[Lst_control.SelectedIndex].ToString() == "Providers")
+                {
+                    MainFrame.Navigate(new Providers());
+                }
             }
+
         }
     }
 }

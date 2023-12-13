@@ -105,8 +105,14 @@
     <Compile Include="ProductSales.cs">
       <DependentUpon>Satisfactory.tt</DependentUpon>
     </Compile>
+    <Compile Include="ProvEdit.xaml.cs">
+      <DependentUpon>ProvEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Provider.cs">
       <DependentUpon>Satisfactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Providers.xaml.cs">
+      <DependentUpon>Providers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Satisfactory.Context.cs">
       <AutoGen>True</AutoGen>
@@ -161,6 +167,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Materials.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProvEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Providers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
