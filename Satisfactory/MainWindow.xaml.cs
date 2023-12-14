@@ -134,6 +134,7 @@ namespace Satisfactory
                 MainFrame.SetValue(Grid.ColumnProperty, 1);
                 MainFrame.SetValue(Grid.ColumnSpanProperty, 1);
                 Lst_control.Items.Clear();
+                Lst_control.Items.Add("Product");
                 if(Auths.Status == "Admin" || Auths.Status == "Manager")
                 {
                     Lst_control.Items.Add("Materials");
@@ -158,6 +159,11 @@ namespace Satisfactory
                 if (Lst_control.Items[Lst_control.SelectedIndex].ToString() == "Providers")
                 {
                     MainFrame.Navigate(new Providers());
+                }
+
+                if (Lst_control.Items[Lst_control.SelectedIndex].ToString() == "Product")
+                {
+                    MainFrame.Navigate(new Product());
                 }
             }
 
